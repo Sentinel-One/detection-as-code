@@ -1,0 +1,9 @@
+id: rule3-duplicate # rule file name does not have to be unique but the id must be unique
+name: Duplicate Brute Force Login Attempt on Identity Provider
+description: Detects multiple failed login attempts from a single source within a short time window
+severity: Medium
+expirationMode: Permanent
+queryType: events
+s1ql: 'EventType = "Login" AND LoginResult = "Failed"'
+queryLang: "2.0"
+status: Draft

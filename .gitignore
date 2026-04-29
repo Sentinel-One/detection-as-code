@@ -1,0 +1,49 @@
+.idea/
+.vscode/
+.venv
+venv
+testenv
+*.pyc
+*.iml
+*_testReport.*
+/api_docs/dist/
+/api_docs/api_docs.egg-info/
+api_docs/swagger_ui/
+main
+vendor
+lib
+
+# macOS system files
+.DS_Store
+**/.DS_Store
+
+# Temporary files and directories
+tmp/
+output/
+*.db
+*.zip
+
+# Jira CLI
+.jira-cli/
+
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Go test binaries
+*.test
+
+# Test files
+test.py
+test1.py
+test_db_populator.py
+demo_profiling.py
+example_usage.py
+list_schemas.py
+list_tables.py
+clear_all_data.py
+
+# Go test coverage files
+*.out
+coverage.out
+*_coverage.out
