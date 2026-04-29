@@ -1,0 +1,9 @@
+id: rule2
+name: Lateral Movement via PsExec
+description: Detects remote execution attempts using PsExec or similar SMB-based tools
+severity: High
+expirationMode: Permanent
+queryType: events
+s1ql: 'EventType = "Process Creation" AND ProcessName = "psexec.exe" OR ProcessName = "psexesvc.exe"'
+queryLang: "2.0"
+status: Active

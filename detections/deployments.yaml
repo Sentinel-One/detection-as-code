@@ -1,0 +1,8 @@
+targets:
+  dev:
+    scopeId: "1234567890"
+    scopeLevel: account
+
+deploy:
+  dev:
+    - "shared/*.yaml"
