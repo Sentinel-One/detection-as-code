@@ -3,9 +3,9 @@
 Manage your SentinelOne detection rules the same way you manage code: in Git,
 reviewed via Pull Requests, and deployed automatically by GitHub Actions.
 
-This repo is a **reference implementation** — a starter template you can clone, drop your own rules into, point at
-your SentinelOne console, and give an API token. It is provided as an example and is **not** actively maintained,
-so expect to adapt the workflow to your own needs.
+This repo is a **reference implementation** provided for illustrative purposes only. 
+It is a starter template you can adapt to your environment, and is not a production-ready deployment architecture or a substitute for your own security review, access controls, and credential management decisions. 
+It is provided as an example and is not actively maintained.
 
 For more in-depth documentation and examples (multi-target deployments, advanced rule features, troubleshooting),
 see the official SentinelOne documentation.
@@ -56,11 +56,9 @@ listed under `targets:` in `deployments.yaml`).
 to hide rule logic.
 5. Copy the generated API token — this is the only time it's shown — and paste it into the `DAC_API_TOKEN` GitHub secret.
 
-> **Note:** Treat the token like a password. Rotate it on the expiration date and revoke it immediately
-> if a runner or laptop is compromised. This example uses GitHub Actions secrets for simplicity. You may prefer a more
-> secure secret store. Securing the token and controlling access to this
-> detections repository is **your responsibility** — anyone who can read the token or push to `main` can change what
-> runs in your SentinelOne console.
+> **Note**: Treat the token like a password. This example uses GitHub Actions secrets for simplicity and is not intended to prescribe a particular production credential-management approach.
+> You should evaluate and implement the access controls, secret storage, and deployment safeguards appropriate for your environment.
+> Securing the token and controlling access to this repository is your responsibility — anyone who can read the token or push to main can change what runs in your SentinelOne console.
 
 ### 3. Point `deployments.yaml` at your scope
 
@@ -118,6 +116,8 @@ Check the **Actions** tab for the deployment summary, or the **check-run** poste
 
 The `apply` summary should match the `diff` summary you saw on the PR exactly — same number of creates, updates, and
 deletes, and the same rule IDs in each list.
+
+Before deploying to a production environment, review this workflow against your organization's change-management, credential-management, and CI/CD security requirements.
 
 ## Recommended GitHub repository settings
 
