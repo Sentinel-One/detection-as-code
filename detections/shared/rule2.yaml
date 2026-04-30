@@ -5,5 +5,4 @@ severity: High
 expirationMode: Permanent
 queryType: events
 s1ql: 'EventType = "Process Creation" AND ProcessName = "psexec.exe" OR ProcessName = "psexesvc.exe"'
-queryLang: "2.0"
 status: Active

@@ -5,5 +5,4 @@ severity: High
 expirationMode: Permanent
 queryType: events
 s1ql: 'EventType = "Process" AND ProcessName = "powershell.exe" AND (ProcessCommandLine contains "-enc" OR ProcessCommandLine contains "-EncodedCommand" OR ProcessCommandLine contains "-ExecutionPolicy Bypass")'
-queryLang: "2.0"
 status: Active

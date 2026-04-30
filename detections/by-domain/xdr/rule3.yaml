@@ -5,5 +5,4 @@ severity: Medium
 expirationMode: Permanent
 queryType: events
 s1ql: 'EventType = "Login" AND LoginResult = "Failed"'
-queryLang: "2.0"
 status: Draft
