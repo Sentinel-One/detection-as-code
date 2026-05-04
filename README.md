@@ -3,7 +3,9 @@
 Manage your SentinelOne detection rules the same way you manage code: in Git,
 reviewed via Pull Requests, and deployed automatically by GitHub Actions.
 
-This repo is a reference implementation – a starter template you can clone, drop your own rules into, point at your SentinelOne console, and give an API token. It is provided as an example and is not actively maintained, so expect to adapt the workflow to your own needs.
+This repo is a **reference implementation** provided for illustrative purposes only. 
+It is a starter template you can adapt to your environment, and is not a production-ready deployment architecture or a substitute for your own security review, access controls, and credential management decisions. 
+It is provided as an example and is not actively maintained.
 
 For more in-depth documentation and examples (multi-target deployments, advanced rule features, troubleshooting),
 see the official SentinelOne documentation.
