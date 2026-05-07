@@ -1,4 +1,4 @@
-# Detections as Code
+# Detection as Code
 
 Manage your SentinelOne detection rules the same way you manage code: in Git,
 reviewed via Pull Requests, and deployed automatically by GitHub Actions.
