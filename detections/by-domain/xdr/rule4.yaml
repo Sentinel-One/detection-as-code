@@ -1,0 +1,8 @@
+id: rule4
+name: Suspicious PowerShell Execution
+description: Detects suspicious PowerShell command execution with encoded commands or bypass flags
+severity: High
+expirationMode: Permanent
+queryType: events
+s1ql: 'event.type = "Process Creation" AND src.process.name = "powershell.exe" AND (src.process.cmdline contains "-enc" OR src.process.cmdline contains "-EncodedCommand" OR src.process.cmdline contains "-ExecutionPolicy Bypass")'
+status: Active

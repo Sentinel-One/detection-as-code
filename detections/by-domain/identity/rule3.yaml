@@ -1,0 +1,8 @@
+id: rule3
+name: Brute Force Login Attempt on Identity Provider
+description: Detects multiple failed login attempts from a single source within a short time window
+severity: Medium
+expirationMode: Permanent
+queryType: events
+s1ql: 'event.type = "Login" AND event.login.loginIsSuccessful = false'
+status: Draft
