@@ -1,0 +1,25 @@
+id: full-example-correlation-rule
+name: Full Example — Correlation Rule With Every Field Set
+description: Demonstrates every field available to a correlation rule, set explicitly instead of relying on defaults
+severity: Critical
+status: Draft
+expirationMode: Temporary
+expiration: "2026-12-31T00:00:00Z"
+queryType: correlation
+queryLang: "2.0"
+correlationParams:
+  subQueries:
+    - subQuery: 'event.type = "Process Creation" AND src.process.name = "powershell.exe" AND src.process.cmdline contains "DownloadString"'
+      matchesRequired: 1
+    - subQuery: 'event.type = "Process Creation" AND src.process.parent.name = "powershell.exe"'
+      matchesRequired: 1
+  entity: Process
+  matchInOrder: true
+  timeWindow:
+    windowMinutes: 60
+treatAsThreat: Malicious
+networkQuarantine: true
+coolOffSettings:
+  renotifyMinutes: 60
+hideLogic: false
+deletePolicy: Retain

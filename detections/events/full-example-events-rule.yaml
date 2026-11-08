@@ -1,0 +1,16 @@
+id: full-example-events-rule
+name: Full Example — Events Rule With Every Field Set
+description: Demonstrates every field available to an events rule, set explicitly instead of relying on defaults
+severity: High
+status: Draft
+expirationMode: Temporary
+expiration: "2026-12-31T00:00:00Z"
+queryType: events
+queryLang: "2.0"
+s1ql: 'event.type = "Process Creation" AND src.process.name = "mimikatz.exe"'
+treatAsThreat: Malicious
+networkQuarantine: true
+coolOffSettings:
+  renotifyMinutes: 60
+hideLogic: false
+deletePolicy: Retain

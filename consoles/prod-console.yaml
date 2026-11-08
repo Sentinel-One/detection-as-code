@@ -1,0 +1,10 @@
+mgmtUri: https://<place-holder>.sentinelone.net
+tokenSecret: DAC_API_TOKEN_PROD
+
+targets:
+  global-rules:
+    scopeLevel: global
+
+deploy:
+  global-rules:
+    - "shared/*.yaml"

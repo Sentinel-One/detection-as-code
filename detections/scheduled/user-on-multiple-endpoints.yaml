@@ -1,0 +1,20 @@
+id: user-on-multiple-endpoints
+name: Same User Logging Into Many Endpoints
+description: Flags a user account authenticating to an unusually large number of distinct endpoints in a short window; entityMappings links the result back to one of those endpoints for triage
+severity: Medium
+expirationMode: Permanent
+queryType: scheduled
+queryLang: "2.0"
+status: Draft
+scheduledParams:
+  query: 'event.type = "Login" AND event.login.loginIsSuccessful = true | group endpointId=any(agent.uuid), endpoints=estimate_distinct(agent.uuid) by event.login.userName | filter endpoints > 5'
+  runIntervalMinutes: 15
+  lookbackWindowMinutes: 60
+  threshold:
+    value: 0
+    operator: Greater
+entityMappings:
+  - columnName: endpointId
+    identifierType: agent.uuid
+coolOffSettings:
+  renotifyMinutes: 120
