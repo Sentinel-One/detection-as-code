@@ -1,0 +1,25 @@
+id: full-example-scheduled-rule
+name: Full Example — Scheduled Rule With Every Field Set
+description: Demonstrates every field available to a scheduled rule, set explicitly instead of relying on defaults
+severity: Medium
+status: Draft
+expirationMode: Temporary
+expiration: "2026-12-31T00:00:00Z"
+queryType: scheduled
+queryLang: "2.0"
+scheduledParams:
+  query: 'event.type = "Login" AND event.login.loginIsSuccessful = false | group endpointId=any(agent.uuid), attempts=count() by src.ip.address | filter attempts > 10'
+  runIntervalMinutes: 10
+  lookbackWindowMinutes: 60
+  threshold:
+    value: 0
+    operator: Greater
+  alertPerRow: true
+  disableStreaksLogic: false
+entityMappings:
+  - columnName: endpointId
+    identifierType: agent.uuid
+coolOffSettings:
+  renotifyMinutes: 30
+hideLogic: false
+deletePolicy: Retain

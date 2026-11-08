@@ -1,0 +1,20 @@
+id: endpoint-recovery-tampering
+name: Recovery Tampering on One Endpoint
+description: Correlates shadow copy deletion, disabled boot recovery and cleared event logs on the same endpoint, in any order
+severity: Critical
+expirationMode: Permanent
+queryType: correlation
+queryLang: "2.0"
+status: Draft
+correlationParams:
+  subQueries:
+    - subQuery: 'event.type = "Process Creation" AND src.process.name = "vssadmin.exe" AND src.process.cmdline contains "delete shadows"'
+      matchesRequired: 1
+    - subQuery: 'event.type = "Process Creation" AND src.process.name = "bcdedit.exe" AND src.process.cmdline contains "recoveryenabled no"'
+      matchesRequired: 1
+    - subQuery: 'event.type = "Process Creation" AND src.process.name = "wevtutil.exe" AND src.process.cmdline contains " cl "'
+      matchesRequired: 1
+  entity: EndPoint
+  matchInOrder: false
+  timeWindow:
+    windowMinutes: 60

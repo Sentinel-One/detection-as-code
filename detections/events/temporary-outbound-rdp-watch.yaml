@@ -1,0 +1,10 @@
+id: temporary-outbound-rdp-watch
+name: Temporary Watch — Outbound RDP to New External Host
+description: Short-lived rule used to track a specific incident; expires on its own instead of needing manual cleanup
+severity: Low
+expirationMode: Temporary
+expiration: "2026-12-31T00:00:00Z"
+queryType: events
+s1ql: 'event.type = "IP Connect" AND event.network.connection.direction = "outbound" AND event.network.port = 3389'
+status: Draft
+treatAsThreat: Suspicious

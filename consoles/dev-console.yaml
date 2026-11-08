@@ -1,0 +1,18 @@
+mgmtUri: https://<place-holder>.sentinelone.net
+tokenSecret: DAC_API_TOKEN_DEV
+
+targets:
+  site-rules:
+    scopeId: "<place-holder>"
+    scopeLevel: site
+  account-rules:
+    scopeId: "<place-holder>"
+    scopeLevel: account
+
+deploy:
+  site-rules:
+    - "events/*.yaml"
+    - "correlation/*.yaml"
+    - "scheduled/*.yaml"
+  account-rules:
+    - "shared/*.yaml"

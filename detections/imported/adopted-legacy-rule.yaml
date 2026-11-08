@@ -1,0 +1,11 @@
+id: adopted-legacy-rule
+name: Adopted Legacy PowerShell Rule
+description: Adopts a rule that already exists in the console into Detection as Code management, instead of creating a new one
+severity: High
+status: Active
+expirationMode: Permanent
+queryType: events
+queryLang: "2.0"
+s1ql: 'event.type = "Process Creation" AND src.process.name = "powershell.exe" AND src.process.cmdline contains "-EncodedCommand"'
+importCustomRuleId: 1234567890
+deletePolicy: Retain

@@ -1,0 +1,16 @@
+id: hidden-scheduled-rule
+name: Hidden Logic — Many Endpoints Contacting One Rare Port
+description: A scheduled rule whose query is hidden from console users who lack the Perform Advanced Actions permission
+severity: Medium
+expirationMode: Permanent
+queryType: scheduled
+queryLang: "2.0"
+status: Draft
+scheduledParams:
+  query: 'event.type = "IP Connect" AND dst.port.number = 4444 | group endpoints=estimate_distinct(agent.uuid) by dst.ip.address | filter endpoints > 3'
+  runIntervalMinutes: 15
+  lookbackWindowMinutes: 60
+  threshold:
+    value: 0
+    operator: Greater
+hideLogic: true

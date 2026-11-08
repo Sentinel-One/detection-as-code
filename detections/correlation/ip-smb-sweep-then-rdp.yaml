@@ -1,0 +1,18 @@
+id: ip-smb-sweep-then-rdp
+name: SMB Sweep Followed by RDP From the Same IP
+description: Correlates many SMB connections with a later RDP connection coming from the same source IP address
+severity: Medium
+expirationMode: Permanent
+queryType: correlation
+queryLang: "2.0"
+status: Draft
+correlationParams:
+  subQueries:
+    - subQuery: 'event.type = "IP Connect" AND dst.port.number = 445'
+      matchesRequired: 20
+    - subQuery: 'event.type = "IP Connect" AND dst.port.number = 3389'
+      matchesRequired: 1
+  entity: IP
+  matchInOrder: true
+  timeWindow:
+    windowMinutes: 10
