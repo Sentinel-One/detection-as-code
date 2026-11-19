@@ -110,6 +110,10 @@ What you do in Git determines what happens in SentinelOne management console:
   `importCustomRuleId`. The file must match the rule exactly, so download it with
   `GET /web/api/v2.1/cloud-detection/rules/export-vcs` rather than writing it by hand.
 
+> **Note:** All rule files in this repository end in `.yaml.example`, so the console file globs (such as
+> `shared/*.yaml`) do not match them. This prevents accidental deployment of the examples. To deploy a rule,
+> rename it to end in `.yaml` (for example, `rule1.yaml.example` becomes `rule1.yaml`).
+
 For examples, see:
 - `detections/shared/` for simple rules.
 - `detections/events/`, `detections/correlation/` and `detections/scheduled/` for more advanced rules.
